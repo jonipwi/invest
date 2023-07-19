@@ -1,0 +1,43 @@
+macbook@Macbooks-MacBook-Pro invest % go run decision.go
+Matching rows with word active :
+active OR passive = active ( 1 )
+Matching rows with word circle :
+circle OR line = line ( 16 )
+Matching rows with word build :
+build OR destroy = build ( 6 )
+Matching rows with word evil :
+evil OR good = good ( 13 )
+Matching rows with word gold :
+gold OR fiat = gold ( 12 )
+Matching rows with word gold :
+gold OR water = water ( 26 )
+
+Matching rows with word active :
+active XOR passive = active ( 1 )
+Matching rows with word circle :
+circle XOR line = line ( 16 )
+Matching rows with word build :
+build XOR destroy = build ( 6 )
+Matching rows with word evil :
+evil XOR good = good ( 13 )
+Matching rows with word gold :
+gold XOR fiat = gold ( 12 )
+Matching rows with word gold :
+gold XOR water = water ( 26 )
+
+Matching rows with word active :
+active AND passive = no weight equal to 1 ( 0 )
+Matching rows with word circle :
+circle AND line = no weight equal to 1 ( 0 )
+Matching rows with word build :
+build AND destroy = no weight equal to 1 ( 0 )
+Matching rows with word evil :
+evil AND good = no weight equal to 1 ( 0 )
+Matching rows with word active :
+active AND active = active ( 1 )
+Matching rows with word circle :
+circle AND circle = no weight equal to 1 ( 0 )
+Matching rows with word build :
+build AND build = build ( 6 )
+Matching rows with word evil :
+evil AND evil = no weight equal to 1 ( 0 )
