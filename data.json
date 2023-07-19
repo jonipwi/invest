@@ -266,6 +266,36 @@
             "weight": 1
         },
         {
+            "id": 54,
+            "word": "defend",
+            "weight": 1
+        },
+        {
+            "id": 55,
+            "word": "product",
+            "weight": 1
+        },
+        {
+            "id": 56,
+            "word": "invest",
+            "weight": 1
+        },
+        {
+            "id": 57,
+            "word": "short",
+            "weight": 1
+        },
+        {
+            "id": 58,
+            "word": "strong",
+            "weight": 1
+        },
+        {
+            "id": 59,
+            "word": "faith",
+            "weight": 1
+        },
+        {
             "id": 1,
             "word": "passive",
             "weight": 0
@@ -352,7 +382,7 @@
         },
         {
             "id": 18,
-            "word": "stay",
+            "word": "still",
             "weight": 0
         },
         {
@@ -528,6 +558,36 @@
         {
             "id": 53,
             "word": "many",
+            "weight": 0
+        },
+        {
+            "id": 54,
+            "word": "attack",
+            "weight": 0
+        },
+        {
+            "id": 55,
+            "word": "consume",
+            "weight": 0
+        },
+        {
+            "id": 56,
+            "word": "trade",
+            "weight": 0
+        },
+        {
+            "id": 57,
+            "word": "long",
+            "weight": 0
+        },
+        {
+            "id": 58,
+            "word": "weak",
+            "weight": 0
+        },
+        {
+            "id": 59,
+            "word": "seen",
             "weight": 0
         }
     ]
