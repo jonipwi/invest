@@ -296,6 +296,11 @@
             "weight": 1
         },
         {
+            "id": 60,
+            "word": "solve",
+            "weight": 1
+        },
+        {
             "id": 1,
             "word": "passive",
             "weight": 0
@@ -588,6 +593,11 @@
         {
             "id": 59,
             "word": "seen",
+            "weight": 0
+        },
+        {
+            "id": 60,
+            "word": "problem",
             "weight": 0
         }
     ]
