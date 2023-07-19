@@ -238,7 +238,7 @@ func main() {
 
 }
 
-func Test() {
+func Test(db *Database) {
 	// Example usage of searchByID
 	idToSearch := 2
 	matchingRowsByID := searchByID(db, idToSearch)
@@ -325,6 +325,20 @@ func insertSampleData(db *Database) {
 		{24, "small", 1},
 		{25, "war", 1},
 		{26, "water", 1},
+		{27, "patience", 1},
+		{28, "wisdom", 1},
+		{29, "heart", 1},
+		{30, "love", 1},
+		{31, "joy", 1},
+		{32, "truth", 1},
+		{33, "married", 1},
+		{34, "mourn", 1},
+		{35, "stress", 1},
+		{36, "seed", 1},
+		{37, "health", 1},
+		{38, "light", 1},
+		{39, "eternal", 1},
+		{40, "", 1},
 
 		{1, "passive", 0},
 		{2, "manual", 0},
@@ -352,6 +366,20 @@ func insertSampleData(db *Database) {
 		{24, "big", 0},
 		{25, "peace", 0},
 		{26, "gold", 0},
+		{27, "pride", 0},
+		{28, "money", 0},
+		{29, "brain", 0},
+		{30, "hatred", 0},
+		{31, "mourn", 0},
+		{32, "lie", 0},
+		{33, "lonely", 0},
+		{34, "party", 0},
+		{35, "happy", 0},
+		{36, "fruit", 0},
+		{37, "wealth", 0},
+		{38, "dark", 0},
+		{39, "temporary", 0},
+		{40, "", 0},
 	}
 
 	//for _, word := range words {
@@ -424,6 +452,16 @@ func testORWords(db *Database) {
 	} else {
 		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
+
+	// Test cases
+	word1 = "mourn"
+	word2 = "happy"
+	resid, restext, err = bitwiseORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, err, resid)
+	}
 }
 
 func testXORWords(db *Database) {
@@ -487,6 +525,15 @@ func testXORWords(db *Database) {
 		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
 
+	// Test cases
+	word1 = "mourn"
+	word2 = "happy"
+	resid, restext, err = bitwiseXORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, err, resid)
+	}
 }
 
 func testANDWords(db *Database) {

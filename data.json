@@ -259,6 +259,141 @@
             "id": 26,
             "word": "gold",
             "weight": 0
+        },
+        {
+            "id": 27,
+            "word": "patience",
+            "weight": 1
+        },
+        {
+            "id": 28,
+            "word": "wisdom",
+            "weight": 1
+        },
+        {
+            "id": 29,
+            "word": "heart",
+            "weight": 1
+        },
+        {
+            "id": 30,
+            "word": "love",
+            "weight": 1
+        },
+        {
+            "id": 31,
+            "word": "joy",
+            "weight": 1
+        },
+        {
+            "id": 32,
+            "word": "truth",
+            "weight": 1
+        },
+        {
+            "id": 33,
+            "word": "married",
+            "weight": 1
+        },
+        {
+            "id": 34,
+            "word": "mourn",
+            "weight": 1
+        },
+        {
+            "id": 35,
+            "word": "stress",
+            "weight": 1
+        },
+        {
+            "id": 36,
+            "word": "seed",
+            "weight": 1
+        },
+        {
+            "id": 37,
+            "word": "health",
+            "weight": 1
+        },
+        {
+            "id": 38,
+            "word": "light",
+            "weight": 1
+        },
+        {
+            "id": 39,
+            "word": "eternal",
+            "weight": 1
+        },
+        {
+            "id": 40,
+            "word": "",
+            "weight": 1
+        },
+        {
+            "id": 27,
+            "word": "pride",
+            "weight": 0
+        },
+        {
+            "id": 28,
+            "word": "money",
+            "weight": 0
+        },
+        {
+            "id": 29,
+            "word": "brain",
+            "weight": 0
+        },
+        {
+            "id": 30,
+            "word": "hatred",
+            "weight": 0
+        },
+        {
+            "id": 31,
+            "word": "mourn",
+            "weight": 0
+        },
+        {
+            "id": 32,
+            "word": "lie",
+            "weight": 0
+        },
+        {
+            "id": 33,
+            "word": "lonely",
+            "weight": 0
+        },
+        {
+            "id": 34,
+            "word": "party",
+            "weight": 0
+        },
+        {
+            "id": 35,
+            "word": "happy",
+            "weight": 0
+        },
+        {
+            "id": 36,
+            "word": "fruit",
+            "weight": 0
+        },
+        {
+            "id": 37,
+            "word": "wealth",
+            "weight": 0
+        },
+        {
+            "id": 38,
+            "word": "dark",
+            "weight": 0
+        },
+        {
+            "id": 39,
+            "word": "temporary",
+            "weight": 0
         }
     ]
 }
