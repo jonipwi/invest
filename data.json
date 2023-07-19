@@ -394,6 +394,156 @@
             "id": 39,
             "word": "temporary",
             "weight": 0
+        },
+        {
+            "id": 38,
+            "word": "bright",
+            "weight": 1
+        },
+        {
+            "id": 40,
+            "word": "early",
+            "weight": 1
+        },
+        {
+            "id": 41,
+            "word": "care",
+            "weight": 1
+        },
+        {
+            "id": 42,
+            "word": "give",
+            "weight": 1
+        },
+        {
+            "id": 43,
+            "word": "fire",
+            "weight": 1
+        },
+        {
+            "id": 44,
+            "word": "soil",
+            "weight": 1
+        },
+        {
+            "id": 45,
+            "word": "real",
+            "weight": 1
+        },
+        {
+            "id": 46,
+            "word": "bitter",
+            "weight": 1
+        },
+        {
+            "id": 47,
+            "word": "inner",
+            "weight": 1
+        },
+        {
+            "id": 48,
+            "word": "trust",
+            "weight": 1
+        },
+        {
+            "id": 49,
+            "word": "calm",
+            "weight": 1
+        },
+        {
+            "id": 50,
+            "word": "need",
+            "weight": 1
+        },
+        {
+            "id": 51,
+            "word": "progress",
+            "weight": 1
+        },
+        {
+            "id": 52,
+            "word": "smart",
+            "weight": 1
+        },
+        {
+            "id": 53,
+            "word": "one",
+            "weight": 1
+        },
+        {
+            "id": 30,
+            "word": "hate",
+            "weight": 0
+        },
+        {
+            "id": 40,
+            "word": "late",
+            "weight": 0
+        },
+        {
+            "id": 41,
+            "word": "iqnore",
+            "weight": 0
+        },
+        {
+            "id": 42,
+            "word": "take",
+            "weight": 0
+        },
+        {
+            "id": 43,
+            "word": "water",
+            "weight": 0
+        },
+        {
+            "id": 44,
+            "word": "metal",
+            "weight": 0
+        },
+        {
+            "id": 45,
+            "word": "fake",
+            "weight": 0
+        },
+        {
+            "id": 46,
+            "word": "sweet",
+            "weight": 0
+        },
+        {
+            "id": 47,
+            "word": "outer",
+            "weight": 0
+        },
+        {
+            "id": 48,
+            "word": "doubt",
+            "weight": 0
+        },
+        {
+            "id": 49,
+            "word": "anxious",
+            "weight": 0
+        },
+        {
+            "id": 50,
+            "word": "want",
+            "weight": 0
+        },
+        {
+            "id": 51,
+            "word": "result",
+            "weight": 0
+        },
+        {
+            "id": 52,
+            "word": "brute",
+            "weight": 0
+        },
+        {
+            "id": 53,
+            "word": "many",
+            "weight": 0
         }
     ]
 }
