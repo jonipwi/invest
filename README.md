@@ -29,3 +29,4 @@ build AND build = build ( 6 )
 evil AND evil = no weight equal to 1 ( 0 )
 
 # Sample Code
+https://github.com/jonipwi/invest/blob/main/decision.go
