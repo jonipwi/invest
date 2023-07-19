@@ -1,5 +1,5 @@
-# invest
-Dao and Ethics of Investment
+# Invest
+道(Laws) and 德(Ethics) of Investment
 
 # Case Study:
 To find out the nature of investing and investment core.
