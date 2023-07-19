@@ -31,17 +31,74 @@ func bitwiseXOR(bit1, bit2 int) int {
 	return 0
 }
 
+// searchByWord searches the database for all rows with a specific word and returns a list of matching rows.
+func searchByWord(db *Database, searchWord string) []*Word {
+	// Assuming that the 'db' parameter is a slice of Word objects.
+
+	// Create an empty list to store matching rows.
+	matchingRows := []*Word{}
+
+	// Iterate through the database and find rows with the specified word.
+	for _, word := range db.Words {
+		if word.Word == searchWord {
+			// Create a new instance of Word for each matching row and append it to matchingRows.
+			matchingRows = append(matchingRows, &Word{
+				ID:     word.ID,
+				Word:   word.Word,
+				Weight: word.Weight,
+			})
+		}
+	}
+
+	// Return the list of matching rows.
+	return matchingRows
+}
+
+// searchByID searches the database for all rows with a specific ID and returns a list of matching rows.
+func searchByID(db *Database, id int) []*Word {
+	// Assuming that the 'db' parameter is a slice of Word objects.
+
+	// Create an empty list to store matching rows.
+	matchingRows := []*Word{}
+
+	// Iterate through the database and find rows with the specified ID.
+	for _, word := range db.Words {
+		if word.ID == id {
+			// Create a new instance of Word for each matching row and append it to matchingRows.
+			matchingRows = append(matchingRows, &Word{
+				ID:     word.ID,
+				Word:   word.Word,
+				Weight: word.Weight,
+			})
+		}
+	}
+
+	// Return the list of matching rows.
+	return matchingRows
+}
+
 func bitwiseORWords(word1, word2 string, db *Database) (int, string, error) {
 	var weight1, weight2 int
 	var id1, id2 int
-	for _, word := range db.Words {
-		if word.Word == word1 {
-			weight1 = word.Weight
-			id1 = word.ID
-		}
-		if word.Word == word2 {
-			weight2 = word.Weight
-			id2 = word.ID
+	id1 = 0
+	id2 = 0
+
+	wordToSearch := word1
+	matchingRowsByWord := searchByWord(db, wordToSearch)
+	fmt.Println("Matching rows with word", wordToSearch, ":")
+	for _, row1 := range matchingRowsByWord {
+		//fmt.Println(row)
+		idToSearch := row1.ID
+		matchingRowsByID := searchByID(db, idToSearch)
+		//fmt.Println("Matching rows with ID", idToSearch, ":")
+		for _, row2 := range matchingRowsByID {
+			//fmt.Println(row2)
+			if row2.Word == word2 {
+				id1 = row1.ID
+				weight1 = row1.Weight
+				id2 = row2.ID
+				weight2 = row2.Weight
+			}
 		}
 	}
 
@@ -60,14 +117,25 @@ func bitwiseORWords(word1, word2 string, db *Database) (int, string, error) {
 func bitwiseANDWords(word1, word2 string, db *Database) (int, string, error) {
 	var weight1, weight2 int
 	var id1, id2 int
-	for _, word := range db.Words {
-		if word.Word == word1 {
-			weight1 = word.Weight
-			id1 = word.ID
-		}
-		if word.Word == word2 {
-			weight2 = word.Weight
-			id2 = word.ID
+	id1 = 0
+	id2 = 0
+
+	wordToSearch := word1
+	matchingRowsByWord := searchByWord(db, wordToSearch)
+	fmt.Println("Matching rows with word", wordToSearch, ":")
+	for _, row1 := range matchingRowsByWord {
+		//fmt.Println(row)
+		idToSearch := row1.ID
+		matchingRowsByID := searchByID(db, idToSearch)
+		//fmt.Println("Matching rows with ID", idToSearch, ":")
+		for _, row2 := range matchingRowsByID {
+			//fmt.Println(row2)
+			if row2.Word == word2 {
+				id1 = row1.ID
+				weight1 = row1.Weight
+				id2 = row2.ID
+				weight2 = row2.Weight
+			}
 		}
 	}
 
@@ -86,14 +154,25 @@ func bitwiseANDWords(word1, word2 string, db *Database) (int, string, error) {
 func bitwiseXORWords(word1, word2 string, db *Database) (int, string, error) {
 	var weight1, weight2 int
 	var id1, id2 int
-	for _, word := range db.Words {
-		if word.Word == word1 {
-			weight1 = word.Weight
-			id1 = word.ID
-		}
-		if word.Word == word2 {
-			weight2 = word.Weight
-			id2 = word.ID
+	id1 = 0
+	id2 = 0
+
+	wordToSearch := word1
+	matchingRowsByWord := searchByWord(db, wordToSearch)
+	fmt.Println("Matching rows with word", wordToSearch, ":")
+	for _, row1 := range matchingRowsByWord {
+		//fmt.Println(row)
+		idToSearch := row1.ID
+		matchingRowsByID := searchByID(db, idToSearch)
+		//fmt.Println("Matching rows with ID", idToSearch, ":")
+		for _, row2 := range matchingRowsByID {
+			//fmt.Println(row2)
+			if row2.Word == word2 {
+				id1 = row1.ID
+				weight1 = row1.Weight
+				id2 = row2.ID
+				weight2 = row2.Weight
+			}
 		}
 	}
 
@@ -156,6 +235,25 @@ func main() {
 	fmt.Printf("\n")
 	testANDWords(db)
 	fmt.Printf("\n")
+
+}
+
+func Test() {
+	// Example usage of searchByID
+	idToSearch := 2
+	matchingRowsByID := searchByID(db, idToSearch)
+	fmt.Println("Matching rows with ID", idToSearch, ":")
+	for _, row := range matchingRowsByID {
+		fmt.Println(row)
+	}
+
+	// Example usage of searchByWord
+	wordToSearch := "gold"
+	matchingRowsByWord := searchByWord(db, wordToSearch)
+	fmt.Println("Matching rows with word", wordToSearch, ":")
+	for _, row := range matchingRowsByWord {
+		fmt.Println(row)
+	}
 }
 
 // loadDataFromJSON reads the JSON file and loads data into the provided database.
@@ -274,7 +372,7 @@ func testORWords(db *Database) {
 	if resid > 0 {
 		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
 	} else {
-		fmt.Printf("%s\n", err)
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
 
 	// Test cases
@@ -284,7 +382,7 @@ func testORWords(db *Database) {
 	if resid > 0 {
 		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
 	} else {
-		fmt.Printf("%s\n", err)
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
 
 	// Test cases
@@ -294,7 +392,7 @@ func testORWords(db *Database) {
 	if resid > 0 {
 		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
 	} else {
-		fmt.Printf("%s\n", err)
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
 
 	// Test cases
@@ -304,7 +402,27 @@ func testORWords(db *Database) {
 	if resid > 0 {
 		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
 	} else {
-		fmt.Printf("%s\n", err)
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "gold"
+	word2 = "fiat"
+	resid, restext, err = bitwiseORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "gold"
+	word2 = "water"
+	resid, restext, err = bitwiseORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
 }
 
@@ -316,7 +434,7 @@ func testXORWords(db *Database) {
 	if resid > 0 {
 		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
 	} else {
-		fmt.Printf("%s\n", err)
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
 
 	// Test cases
@@ -326,7 +444,7 @@ func testXORWords(db *Database) {
 	if resid > 0 {
 		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
 	} else {
-		fmt.Printf("%s\n", err)
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
 
 	// Test cases
@@ -336,7 +454,7 @@ func testXORWords(db *Database) {
 	if resid > 0 {
 		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
 	} else {
-		fmt.Printf("%s\n", err)
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
 
 	// Test cases
@@ -346,8 +464,29 @@ func testXORWords(db *Database) {
 	if resid > 0 {
 		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
 	} else {
-		fmt.Printf("%s\n", err)
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, err, resid)
 	}
+
+	// Test cases
+	word1 = "gold"
+	word2 = "fiat"
+	resid, restext, err = bitwiseXORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "gold"
+	word2 = "water"
+	resid, restext, err = bitwiseXORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
 }
 
 func testANDWords(db *Database) {

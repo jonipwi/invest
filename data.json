@@ -1,0 +1,264 @@
+{
+    "words": [
+        {
+            "id": 1,
+            "word": "active",
+            "weight": 1
+        },
+        {
+            "id": 2,
+            "word": "ai",
+            "weight": 1
+        },
+        {
+            "id": 3,
+            "word": "alive",
+            "weight": 1
+        },
+        {
+            "id": 4,
+            "word": "all",
+            "weight": 1
+        },
+        {
+            "id": 5,
+            "word": "balance",
+            "weight": 1
+        },
+        {
+            "id": 6,
+            "word": "build",
+            "weight": 1
+        },
+        {
+            "id": 7,
+            "word": "cash",
+            "weight": 1
+        },
+        {
+            "id": 8,
+            "word": "diy",
+            "weight": 1
+        },
+        {
+            "id": 9,
+            "word": "donate",
+            "weight": 1
+        },
+        {
+            "id": 10,
+            "word": "fast",
+            "weight": 1
+        },
+        {
+            "id": 11,
+            "word": "friend",
+            "weight": 1
+        },
+        {
+            "id": 12,
+            "word": "gold",
+            "weight": 1
+        },
+        {
+            "id": 13,
+            "word": "good",
+            "weight": 1
+        },
+        {
+            "id": 14,
+            "word": "keep",
+            "weight": 1
+        },
+        {
+            "id": 15,
+            "word": "learn",
+            "weight": 1
+        },
+        {
+            "id": 16,
+            "word": "line",
+            "weight": 1
+        },
+        {
+            "id": 17,
+            "word": "low",
+            "weight": 1
+        },
+        {
+            "id": 18,
+            "word": "move",
+            "weight": 1
+        },
+        {
+            "id": 19,
+            "word": "nothing",
+            "weight": 1
+        },
+        {
+            "id": 20,
+            "word": "nuke",
+            "weight": 1
+        },
+        {
+            "id": 21,
+            "word": "private",
+            "weight": 1
+        },
+        {
+            "id": 22,
+            "word": "saving",
+            "weight": 1
+        },
+        {
+            "id": 23,
+            "word": "sell",
+            "weight": 1
+        },
+        {
+            "id": 24,
+            "word": "small",
+            "weight": 1
+        },
+        {
+            "id": 25,
+            "word": "war",
+            "weight": 1
+        },
+        {
+            "id": 26,
+            "word": "water",
+            "weight": 1
+        },
+        {
+            "id": 1,
+            "word": "passive",
+            "weight": 0
+        },
+        {
+            "id": 2,
+            "word": "manual",
+            "weight": 0
+        },
+        {
+            "id": 3,
+            "word": "death",
+            "weight": 0
+        },
+        {
+            "id": 4,
+            "word": "group",
+            "weight": 0
+        },
+        {
+            "id": 5,
+            "word": "bias",
+            "weight": 0
+        },
+        {
+            "id": 6,
+            "word": "destroy",
+            "weight": 0
+        },
+        {
+            "id": 7,
+            "word": "gold",
+            "weight": 0
+        },
+        {
+            "id": 8,
+            "word": "buy",
+            "weight": 0
+        },
+        {
+            "id": 9,
+            "word": "spend",
+            "weight": 0
+        },
+        {
+            "id": 10,
+            "word": "slow",
+            "weight": 0
+        },
+        {
+            "id": 11,
+            "word": "enemy",
+            "weight": 0
+        },
+        {
+            "id": 12,
+            "word": "fiat",
+            "weight": 0
+        },
+        {
+            "id": 13,
+            "word": "evil",
+            "weight": 0
+        },
+        {
+            "id": 14,
+            "word": "burn",
+            "weight": 0
+        },
+        {
+            "id": 15,
+            "word": "share",
+            "weight": 0
+        },
+        {
+            "id": 16,
+            "word": "circle",
+            "weight": 0
+        },
+        {
+            "id": 17,
+            "word": "high",
+            "weight": 0
+        },
+        {
+            "id": 18,
+            "word": "stay",
+            "weight": 0
+        },
+        {
+            "id": 19,
+            "word": "everything",
+            "weight": 0
+        },
+        {
+            "id": 20,
+            "word": "gun",
+            "weight": 0
+        },
+        {
+            "id": 21,
+            "word": "public",
+            "weight": 0
+        },
+        {
+            "id": 22,
+            "word": "donate",
+            "weight": 0
+        },
+        {
+            "id": 23,
+            "word": "buy",
+            "weight": 0
+        },
+        {
+            "id": 24,
+            "word": "big",
+            "weight": 0
+        },
+        {
+            "id": 25,
+            "word": "peace",
+            "weight": 0
+        },
+        {
+            "id": 26,
+            "word": "gold",
+            "weight": 0
+        }
+    ]
+}
