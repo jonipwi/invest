@@ -1,0 +1,433 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"os"
+)
+
+// Function to compare two bits and return the result (1 if at least one bit is 1)
+func bitwiseOR(bit1, bit2 int) int {
+	if bit1 == 1 || bit2 == 1 {
+		return 1
+	}
+	return 0
+}
+
+func bitwiseAND(bit1, bit2 int) int {
+	if bit1 == 1 && bit2 == 1 {
+		return 1
+	}
+	return 0
+}
+
+// Function to compare two bits using XOR and return the result (1 if bits are different, 0 if they are the same)
+func bitwiseXOR(bit1, bit2 int) int {
+	if bit1 != bit2 {
+		return 1
+	}
+	return 0
+}
+
+func bitwiseORWords(word1, word2 string, db *Database) (int, string, error) {
+	var weight1, weight2 int
+	var id1, id2 int
+	for _, word := range db.Words {
+		if word.Word == word1 {
+			weight1 = word.Weight
+			id1 = word.ID
+		}
+		if word.Word == word2 {
+			weight2 = word.Weight
+			id2 = word.ID
+		}
+	}
+
+	result := (weight1 == 1) || (weight2 == 1)
+	if result == true {
+		if weight1 == 1 {
+			return id1, word1, nil
+		} else if weight2 == 1 {
+			return id2, word2, nil
+		}
+	}
+
+	return 0, "", fmt.Errorf("no weight equal to 1")
+}
+
+func bitwiseANDWords(word1, word2 string, db *Database) (int, string, error) {
+	var weight1, weight2 int
+	var id1, id2 int
+	for _, word := range db.Words {
+		if word.Word == word1 {
+			weight1 = word.Weight
+			id1 = word.ID
+		}
+		if word.Word == word2 {
+			weight2 = word.Weight
+			id2 = word.ID
+		}
+	}
+
+	result := (weight1 == 1) && (weight2 == 1)
+	if result == true {
+		if weight1 == 1 {
+			return id1, word1, nil
+		} else if weight2 == 1 {
+			return id2, word2, nil
+		}
+	}
+
+	return 0, "", fmt.Errorf("no weight equal to 1")
+}
+
+func bitwiseXORWords(word1, word2 string, db *Database) (int, string, error) {
+	var weight1, weight2 int
+	var id1, id2 int
+	for _, word := range db.Words {
+		if word.Word == word1 {
+			weight1 = word.Weight
+			id1 = word.ID
+		}
+		if word.Word == word2 {
+			weight2 = word.Weight
+			id2 = word.ID
+		}
+	}
+
+	result := weight1 != weight2
+	if result == true {
+		if weight1 == 1 {
+			return id1, word1, nil
+		} else if weight2 == 1 {
+			return id2, word2, nil
+		}
+	}
+
+	return 0, "", fmt.Errorf("no weight equal to 1")
+}
+
+const (
+	dbPath = "./data.json" // Change this path as per your preference
+)
+
+// Word represents a row in the database.
+type Word struct {
+	ID     int    `json:"id"`
+	Word   string `json:"word"`
+	Weight int    `json:"weight"`
+}
+
+// Database represents the whole JSON database.
+type Database struct {
+	Words []Word `json:"words"`
+}
+
+func main() {
+	// Initialize the database
+	db := &Database{}
+
+	// Load data from the JSON file (if it exists)
+	if err := loadDataFromJSON(dbPath, db); err != nil {
+		log.Fatal(err)
+	}
+
+	// Insert some sample data into the database (if it doesn't exist)
+	insertSampleData(db)
+
+	// Save the data back to the JSON file
+	if err := saveDataToJSON(dbPath, db); err != nil {
+		log.Fatal(err)
+	}
+
+	/***
+	// Query the data and print the results
+	fmt.Println("ID\tWord\tWeight")
+	fmt.Println("------------------")
+	for _, word := range db.Words {
+		fmt.Printf("%d\t%s\t%d\n", word.ID, word.Word, word.Weight)
+	}***/
+
+	testORWords(db)
+	fmt.Printf("\n")
+	testXORWords(db)
+	fmt.Printf("\n")
+	testANDWords(db)
+	fmt.Printf("\n")
+}
+
+// loadDataFromJSON reads the JSON file and loads data into the provided database.
+func loadDataFromJSON(filename string, db *Database) error {
+	file, err := os.Open(filename)
+	if err != nil {
+		// If the file does not exist, return an empty database without an error
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	}
+	defer file.Close()
+
+	byteValue, err := ioutil.ReadAll(file)
+	if err != nil {
+		return err
+	}
+
+	return json.Unmarshal(byteValue, db)
+}
+
+// saveDataToJSON saves the database data to the JSON file.
+func saveDataToJSON(filename string, db *Database) error {
+	data, err := json.MarshalIndent(db, "", "    ")
+	if err != nil {
+		return err
+	}
+
+	return ioutil.WriteFile(filename, data, 0644)
+}
+
+// wordExists checks if a word with the given ID already exists in the database.
+func wordExists(db *Database, wordID int, wordText string) bool {
+	for _, word := range db.Words {
+		if (word.ID == wordID) && (word.Word == wordText) {
+			return true
+		}
+	}
+	return false
+}
+
+// insertSampleData inserts some example data into the database.
+func insertSampleData(db *Database) {
+	words := []Word{
+		{1, "active", 1},
+		{2, "ai", 1},
+		{3, "alive", 1},
+		{4, "all", 1},
+		{5, "balance", 1},
+		{6, "build", 1},
+		{7, "cash", 1},
+		{8, "diy", 1},
+		{9, "donate", 1},
+		{10, "fast", 1},
+		{11, "friend", 1},
+		{12, "gold", 1},
+		{13, "good", 1},
+		{14, "keep", 1},
+		{15, "learn", 1},
+		{16, "line", 1},
+		{17, "low", 1},
+		{18, "move", 1},
+		{19, "nothing", 1},
+		{20, "nuke", 1},
+		{21, "private", 1},
+		{22, "saving", 1},
+		{23, "sell", 1},
+		{24, "small", 1},
+		{25, "war", 1},
+		{26, "water", 1},
+
+		{1, "passive", 0},
+		{2, "manual", 0},
+		{3, "death", 0},
+		{4, "group", 0},
+		{5, "bias", 0},
+		{6, "destroy", 0},
+		{7, "gold", 0},
+		{8, "buy", 0},
+		{9, "spend", 0},
+		{10, "slow", 0},
+		{11, "enemy", 0},
+		{12, "fiat", 0},
+		{13, "evil", 0},
+		{14, "burn", 0},
+		{15, "share", 0},
+		{16, "circle", 0},
+		{17, "high", 0},
+		{18, "stay", 0},
+		{19, "everything", 0},
+		{20, "gun", 0},
+		{21, "public", 0},
+		{22, "donate", 0},
+		{23, "buy", 0},
+		{24, "big", 0},
+		{25, "peace", 0},
+		{26, "gold", 0},
+	}
+
+	//for _, word := range words {
+	//	db.Words = append(db.Words, word)
+	//}
+	for _, newWord := range words {
+		if !wordExists(db, newWord.ID, newWord.Word) {
+			db.Words = append(db.Words, newWord)
+		}
+	}
+}
+
+func testORWords(db *Database) {
+	// Test cases
+	word1 := "active"
+	word2 := "passive"
+	resid, restext, err := bitwiseORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s\n", err)
+	}
+
+	// Test cases
+	word1 = "circle"
+	word2 = "line"
+	resid, restext, err = bitwiseORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s\n", err)
+	}
+
+	// Test cases
+	word1 = "build"
+	word2 = "destroy"
+	resid, restext, err = bitwiseORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s\n", err)
+	}
+
+	// Test cases
+	word1 = "evil"
+	word2 = "good"
+	resid, restext, err = bitwiseORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s OR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s\n", err)
+	}
+}
+
+func testXORWords(db *Database) {
+	// Test cases
+	word1 := "active"
+	word2 := "passive"
+	resid, restext, err := bitwiseXORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s\n", err)
+	}
+
+	// Test cases
+	word1 = "circle"
+	word2 = "line"
+	resid, restext, err = bitwiseXORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s\n", err)
+	}
+
+	// Test cases
+	word1 = "build"
+	word2 = "destroy"
+	resid, restext, err = bitwiseXORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s\n", err)
+	}
+
+	// Test cases
+	word1 = "evil"
+	word2 = "good"
+	resid, restext, err = bitwiseXORWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s XOR %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s\n", err)
+	}
+}
+
+func testANDWords(db *Database) {
+	// Test cases
+	word1 := "active"
+	word2 := "passive"
+	resid, restext, err := bitwiseANDWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "circle"
+	word2 = "line"
+	resid, restext, err = bitwiseANDWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "build"
+	word2 = "destroy"
+	resid, restext, err = bitwiseANDWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "evil"
+	word2 = "good"
+	resid, restext, err = bitwiseANDWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "active"
+	word2 = "active"
+	resid, restext, err = bitwiseANDWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "circle"
+	word2 = "circle"
+	resid, restext, err = bitwiseANDWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "build"
+	word2 = "build"
+	resid, restext, err = bitwiseANDWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+
+	// Test cases
+	word1 = "evil"
+	word2 = "evil"
+	resid, restext, err = bitwiseANDWords(word1, word2, db)
+	if resid > 0 {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, restext, resid)
+	} else {
+		fmt.Printf("%s AND %s = %s ( %d )\n", word1, word2, err, resid)
+	}
+}
