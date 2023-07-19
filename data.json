@@ -301,6 +301,36 @@
             "weight": 1
         },
         {
+            "id": 61,
+            "word": "courage",
+            "weight": 1
+        },
+        {
+            "id": 62,
+            "word": "fear",
+            "weight": 1
+        },
+        {
+            "id": 63,
+            "word": "just",
+            "weight": 1
+        },
+        {
+            "id": 64,
+            "word": "hope",
+            "weight": 1
+        },
+        {
+            "id": 65,
+            "word": "spirit",
+            "weight": 1
+        },
+        {
+            "id": 66,
+            "word": "holy",
+            "weight": 1
+        },
+        {
             "id": 1,
             "word": "passive",
             "weight": 0
@@ -598,6 +628,36 @@
         {
             "id": 60,
             "word": "problem",
+            "weight": 0
+        },
+        {
+            "id": 61,
+            "word": "timid",
+            "weight": 0
+        },
+        {
+            "id": 62,
+            "word": "bold",
+            "weight": 0
+        },
+        {
+            "id": 63,
+            "word": "sacrifice",
+            "weight": 0
+        },
+        {
+            "id": 64,
+            "word": "despair",
+            "weight": 0
+        },
+        {
+            "id": 65,
+            "word": "flesh",
+            "weight": 0
+        },
+        {
+            "id": 66,
+            "word": "wicked",
             "weight": 0
         }
     ]
