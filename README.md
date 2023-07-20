@@ -15,5 +15,5 @@ https://github.com/jonipwi/invest/blob/main/decision.go
 
 # Run in your smart phone
 https://play.google.com/store/apps/details?id=com.krazeapps.goprogrammingcompiler
-after installed, then copy the sameple code "decision.go"
+after installed, then copy paste the sample code "decision.go"
 good luck, all!
