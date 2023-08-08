@@ -365,6 +365,7 @@ func insertSampleData(db *Database) {
 		{64, "hope", 1},
 		{65, "spirit", 1},
 		{66, "holy", 1},
+		{67, "forgive", 1},
 
 		{1, "passive", 0},
 		{2, "manual", 0},
@@ -432,6 +433,7 @@ func insertSampleData(db *Database) {
 		{64, "despair", 0},
 		{65, "flesh", 0},
 		{66, "wicked", 0},
+		{67, "religious", 0},
 	}
 
 	//for _, word := range words {
