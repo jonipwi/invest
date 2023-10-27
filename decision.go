@@ -435,7 +435,7 @@ func insertSampleData(db *Database) {
 		{65, "flesh", 0},
 		{66, "wicked", 0},
 		{67, "religious", 0},
-		{68, "Satan, the Liar and Deceitful", 1},
+		{68, "Satan, the Liar and Deceitful", 0},
 
 	}
 
