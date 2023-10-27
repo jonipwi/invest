@@ -1,6 +1,10 @@
 # Invest
 道(Laws) and 德(Ethics) of Investment
 
+# 27 Oct 2023 13.01
+https://www.youtube.com/watch?v=vKdVYW4i3UE&t=405s
+Suddently, Jesus heals my sick. Halelujah Amen! Praise the Lord!
+
 # Case Study:
 To find out the nature of investing and investment core.
 
