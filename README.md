@@ -1,6 +1,11 @@
 # Invest
 道(Laws) and 德(Ethics) of Investment
 
+# Sept to Oct 2023
+Maybe it is the heaven sign, the child come out from the womb of virgin is going to hard time, because of on going challenging to serpen.
+https://github.com/jonipwi/invest/blob/main/heaven-sign1.jpeg
+https://github.com/jonipwi/invest/blob/main/heaven-sign2.jpeg
+
 # 27 Oct 2023 13.01
 https://www.youtube.com/watch?v=vKdVYW4i3UE&t=405s
 Suddently, Jesus heals my sick. Halelujah Amen! Praise the Lord!
